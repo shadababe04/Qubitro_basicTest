@@ -8,13 +8,13 @@ WiFiClient wifiClient;
 QubitroMqttClient mqttClient(wifiClient);
 
 // WiFi Credentials
-char ssid[] = "Abedin";   
-char pass[] = "#Shanam04";
+char ssid[] = "XXXXXX";   
+char pass[] = "XXXXXXX";
 
-char deviceID[] = "3cd5621b-30b3-447f-93db-a46908590618";
-char deviceToken[] = "2nsxzH35UrOq3s-Okf6yg1xzZBkqAq6L6I-G5P6o";
+char deviceID[] = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+char deviceToken[] = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 char host[] = "broker.qubitro.com";
-int port = 1883;
+int port = 1883; //8883 SSL
 
 unsigned long next = 0;
 
@@ -61,7 +61,7 @@ void loop()
     next = millis() + PERIOD;
     // Change if possible to have a message over 256 characters
     static char payload[256];
-    snprintf(payload, sizeof(payload)-1, "{\"temp\":%d}", 36);
+    snprintf(payload, sizeof(payload)-1, "{\"temp\":%d}", 36); //Temp Value is 36
     mqttClient.beginMessage(deviceID);
     // Send value
     mqttClient.print(payload); 
